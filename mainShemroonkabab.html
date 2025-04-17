@@ -1,0 +1,913 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!--
+    https://www.youtube.com/watch?v=nD3fbcvbZNk   یک فایل      Async vs Defer Attributes in Javascript - Include JavaScript Correctly in HTML
+    https://www.youtube.com/watch?v=vutxXjLX5Wo//چند فایل
+
+    https://www.youtube.com/watch?v=GoEBQCp2Nzg  چند فایل    JavaScript Loading Strategies (async and defer) | JavaScript Full Tutorial
+            -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap4/rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <script src="bootstrap4/rtl/js/jquery-3.7.1.min.js"></script>
+    <script src="bootstrap4/rtl/js/bootstrap.bundle.min.js"></script>
+    <link href="fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="mainShemroonkabab.css" rel="stylesheet" />
+
+    <script src="mainShemroonkabab.js" defer></script>
+    <title>new shemroon kabab 7/7/1403</title>
+</head>
+
+<body>
+    <div class="container" id="container1">
+        <div>
+            <div class="row">
+                <div class="col-md-2">
+                    <!--/logo-->
+                    <div class="logo">
+                        <i class="fa fa-align-justify myListIcon" aria-hidden="true"></i>
+                        <img src="images/logo.png" alt="شمرون کباب" />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <!--menu-->
+                    <ul class="menu">
+                        <li><a href="#"> صفحه اصلی  </a></li>
+                        <li><a href="#">سفارش اینترنتی</a></li>
+                        <li><a href="#">درباره ما</a></li>
+                        <li><a href="#">تماس با ما</a></li>
+                    </ul>
+                </div>
+                <div class="col-2 ">
+                    <a href="#" class="btn  login">
+                       
+                            <span>ورود</span>
+                       
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid" id="container2">
+        <!-- image -->
+        <div class="order-background">
+            <img src="images/background.jpeg" height="140" alt="">
+            <div id="branch-address" class="branch-address">
+                <h1>تجریش</h1>
+                <h2>آدرس: میدان تجریش، ضلع شمال شرقی</h2>
+                <div class="branch-change" onclick="callModal()">
+                    <span class="branch-change-text">تغییر مجموعه</span>
+                    <span class="branch-change-downarrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            <div id="accept-order" class="accept-order">
+                <span id="accept-order-icon" class="accept-order-icon">
+                    <!-- <i class="fa fa-circle myCircle1" aria-hidden="true">
+
+                    </i>
+                    <i class="fa fa-circle myCircle" aria-hidden="true"></i>
+                     -->
+                    <span class="accept-order-circle1"></span>
+                    <span class="accept-order-circle2"></span>
+                </span>
+                <span id="accept-order-text" class="accept-order-text">
+                    سفارش می پذیریم
+                </span>
+            </div>
+        </div>
+        <div class="mymodal">
+            <div class="myheader">
+                <h6 class="header-title">لطفا مجموعه مورد نظر خود را انتخاب کنید</h6>
+                <span class="myclose" onclick="closeModal()"> &times</span>
+            </div>
+            <hr class="myline" />
+            <ul class="shobeh-names">
+                <li><a href="#">تجریش</a></li>
+                <li><a href="#">نیاوران</a></li>
+                <li><a href="#">دشت بهشت</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container-fluid" id="container3">
+        <!--<div class="container-xl" id="container3">-->
+        <!-- main content -->
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 mt-5">
+                <!-- tab control -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" id="orderMenu-tab" data-toggle="tab" data-target="#orderMenu"
+                                type="button" role="tab" aria-controls="orderMenu" aria-selected="true">
+                            منوی سفارش
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="restaurantInfo-tab" data-toggle="tab" data-target="#restaurantInfo"
+                                type="button" role="tab" aria-controls="restaurantInfo" aria-selected="false">
+                            اطلاعات رستوران
+                        </button>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="orderMenu" role="tabpanel" aria-labelledby="home-tab">
+                        <!-- منوی سفارش -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="order-menu">
+                                        <div class="right-arrow"></div>
+                                        <!-- <div class="order-menu-items"> -->
+                                        <div class="order-menu-item">
+                                            <img src="images/kebab.png" alt="کباب">
+                                            <div class="order-menu-item-title"> <a href="#kabab">کباب</a></div>
+                                        </div>
+                                        <div class="order-menu-item">
+                                            <img src="images/mix.png" alt="منوی ترکیبی">
+                                            <div class="order-menu-item-title">
+                                                <a href="#mixed-menu">منوی ترکیبی</a>
+                                            </div>
+                                        </div>
+                                        <div class="order-menu-item">
+                                            <img src="images/apetizer.png" alt="پیش غذا">
+                                            <div class="order-menu-item-title"> <a href="#prefood">پیش غذا</a></div>
+                                        </div>
+                                        <div class="order-menu-item">
+                                            <img src="images/drink.png" alt="نوشیدنی">
+                                            <div class="order-menu-item-title"> <a href="#drink">نوشیدنی</a></div>
+                                        </div>
+                                        <!-- </div> -->
+                                        <div class="left-arrow"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="order-search">
+                                        <span class="search-icon-span">
+                                            <i class="fa fa-search my-search-icon-i"
+                                               aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" placeholder="جستجوی سریع" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="kabab" id="kabab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="food-title">کباب</span>
+                                        <span class="food-title-circle">
+                                            <i class="fa fa-share-alt food-title-icon" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food -->
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                دو سیخ کباب لقمه ذغالی( هر سیخ 250 گرم)، گوجه فرنگی، فلفل کبابی، ریحان تازه، ترشی انبه، پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab1.png" class="card-img-top"
+                                                 alt="کباب لقمه گوسفندی شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">کباب لقمه گوسفندی شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                یک سیخ جوجه بدون استخوان ران ذغالی( 500 گرم)، نان تازه داغ، گوجه فرنگی، فلفل کبابی، ریحان تازه، سس انار، پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab4.png" class="card-img-top"
+                                                 alt="جوجه کباب ران شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه کباب ران شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food 2 -->
+                                        <div class="card food added-to-basket">
+                                            <p class="card-text description">
+                                                یک سیخ جوجه بدون استخوان فیله ذغالی( 500 گرم)، گوجه فرنگی، فلفل کبابی، ریحان تازه، سس انار، پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab2.png" class="card-img-top"
+                                                 alt="جوجه کباب فیله شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه کباب فیله شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                یک سیخ جوجه با استخوان ذغالی( 700 گرم )، گوجه فرنگی، فلفل کبابی، ریحان تازه، سس انار، پیاز قرمز
+
+                                            </p>
+                                            <img src="images/kebab3.png" class="card-img-top"
+                                                 alt="جوجه با استخوان شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه با استخوان شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                یک سیخ جوجه بدون استخوان ران ذغالی( 500 گرم)، نان تازه داغ، گوجه فرنگی، فلفل کبابی، ریحان تازه، سس انار، پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab4.png" class="card-img-top"
+                                                 alt="جوجه کباب ران شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه کباب ران شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                دوسیخ لقمه گوسفندی،یک سیخ جوجه بدون استخوان،یک سیخ جوجه با استخوان،یک سیخ شیشلیک و یک سیخ راسته بره
+                                            </p>
+                                            <img src="images/kebab7.png" class="card-img-top"
+                                                 alt=" میکس کباب خانواده ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title"> میکس کباب خانواده</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food 2 -->
+                                        <div class="card food added-to-basket">
+                                            <!--<div class="card food added-to-basket" style="width: 18rem;" -->
+                                            <p class="card-text description">
+                                                یک سیخ جوجه بدون استخوان فیله ذغالی( 500 گرم)، گوجه فرنگی، فلفل کبابی، ریحان تازه، سس انار، پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab2.png" class="card-img-top"
+                                                 alt="جوجه کباب فیله شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه کباب فیله شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="mixed-menu" id="mixed-menu">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="food-title">منوی ترکیبی</span>
+                                        <span class="food-title-circle">
+                                            <i class="fa fa-share-alt food-title-icon" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food -->
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                یک سیخ جوجه بدون استخوان ران ذغالی(500 گرم)،نان تازه داغ،گوجه فرنگی،فلفل کبابی،ریحان تازه،سس انار،پیاز قرمز
+                                            </p>
+                                            <img src="images/kebab6.png" class="card-img-top"
+                                                 alt="جوجه کباب ران شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">جوجه کباب ران شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        410,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food 2 -->
+                                        <div class="card food added-to-basket">
+                                            <p class="card-text description">
+                                                دوسیخ کباب لقمه گوسفندی ذغالی(هر سیخ 250 گرم)،گوجه فرنگی،فلفل
+                                                کبابی،ریحان تازه،ترشی انبه،پیاز قرمز
+                                            </p>
+                                            <img src="images/mix1.png" class="card-img-top"
+                                                 alt="کباب لقمه گوسفندی شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">کباب لقمه گوسفندی شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                دوسیخ کباب لقمه گوسفندی ذغالی(هر سیخ 250 گرم)،گوجه فرنگی،فلفل
+                                                کبابی،ریحان تازه،ترشی انبه،پیاز قرمز
+                                            </p>
+                                            <img src="images/mix3.png" class="card-img-top"
+                                                 alt="کباب لقمه گوسفندی شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">کباب لقمه گوسفندی شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+                                            <p class="card-text description">
+                                                دوسیخ کباب لقمه گوسفندی ذغالی(هر سیخ 250 گرم)،گوجه فرنگی،فلفل
+                                                کبابی،ریحان تازه،ترشی انبه،پیاز قرمز
+                                            </p>
+                                            <img src="images/mix4.png" class="card-img-top"
+                                                 alt="کباب لقمه گوسفندی شمرون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">کباب لقمه گوسفندی شمرون</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prefood-menu" id="prefood">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="food-title">پیش غذا  </span>
+                                        <span class="food-title-circle">
+                                            <i class="fa fa-share-alt food-title-icon" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food -->
+                                        <div class="card food">
+
+                                            <img src="images/pish1.png" class="card-img-top"
+                                                 alt="زیتون">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title"> زیتون      </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        155,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <!-- div.food 2 -->
+                                        <div class="card food added-to-basket">
+
+                                            <img src="images/pish2.png" class="card-img-top"
+                                                 alt=" بورانی اسفناج      ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title"> بورانی اسفناج      </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food">
+
+                                            <img src="images/pish3.png" class="card-img-top"
+                                                 alt=" بورانی بادمجان      ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">بورانی بادمجان</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        650,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden">-</span>
+                                                        <span class="food-order-number hidden">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+
+                                        <div class="card food added-to-basket">
+
+                                            <img src="images/pish4.png" class="card-img-top"
+                                                 alt=" ماست موسیر        ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title"> ماست موسیر        </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        25,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+
+                                        <div class="card food added-to-basket">
+
+                                            <img src="images/drink4.jpeg" class="card-img-top"
+                                                 alt="  ماءالشعیر قوطی هی دی          ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">     ماءالشعیر قوطی هی دی       </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        30,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn  minus-square  ">-</span>
+                                                        <span class="food-order-number  ">1</span>
+                                                        <span class=" btn btn-primary plus-square  pressed">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="drink-menu" id="drink">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="food-title">نوشیدنی  </span>
+                                        <span class="food-title-circle">
+                                            <i class="fa fa-share-alt food-title-icon" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food added-to-basket">
+                                            <!--<p class="card-text description">            </p>-->
+                                            <img src="images/drink1.jpeg" class="card-img-top"
+                                                 alt="دوغ خوشگوار">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">دوغ خوشگوار</h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        25,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square  ">-</span>
+                                                        <span class="food-order-number  ">2</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food ">
+                                            <!--<p class="card-text description">
+
+                                            </p>-->
+                                            <img src="images/drink2.jpeg" class="card-img-top"
+                                                 alt="دوغ خوشگوار">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">آب معدنی  </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        6,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden ">-</span>
+                                                        <span class="food-order-number hidden ">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food ">
+                                            <!--<p class="card-text description"> </p>-->
+                                            <img src="images/drink3.jpeg" class="card-img-top"
+                                                 alt="نوشابه ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">نوشابه </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        25,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden ">-</span>
+                                                        <span class="food-order-number hidden ">1</span>
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card food ">
+                                            <!--<p class="card-text description"> </p>-->
+                                            <img src="images/drink4.jpeg" class="card-img-top"
+                                                 alt="ماءالشعیر قوطی هی دی  ">
+                                            <div class="card-body">
+                                                <h3 class="card-title food-title">ماءالشعیر قوطی هی دی </h3>
+                                                <div class="food-footer">
+                                                    <p class="card-text price">
+                                                        25,000 تومان
+                                                    </p>
+                                                    <div class="left">
+                                                        <span class="btn btn-primary minus-square hidden ">-</span>
+                                                        <span class="food-order-number hidden ">1</span>
+
+                                                        <span class=" btn btn-primary plus-square  ">+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="restaurantInfo" role="tabpanel" aria-labelledby="restaurantInfo-tab">
+                        <!--محتوای اطلاعات رستوران-->
+                        <div class="tab2">
+                            <!--<div class="top">
+                                <div class="right">
+                                    <div class="title">سرویس دهی آنلاین</div>
+                                    <div class="body">
+                                        <table>
+                                            <tr>
+                                                <th></th>
+                                                <th>صبحانه</th>
+                                                <th>ناهار</th>
+                                                <th>شام</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="left"></div>
+                            </div>
+                            <div>وسط - آدرس</div>
+                            <div>- پایین - گوگل مپ</div>-->
+                            <div class="container-fluid">
+                                <div class="row top">
+                                    <div class="col-7 right">
+                                        <table>
+                                            <tr>
+                                                <th></th>
+                                                <th>صبحانه</th>
+                                                <th>ناهار</th>
+                                                <th>شام</th>
+                                            </tr>
+                                            <tr>
+                                                <td>شنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>یک&nbspشنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>دو&nbspشنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>سه&nbspشنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>چهار&nbspشنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>پنج&nbspشنبه</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>  جمعه  </td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>10:45 تا 23:45</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-5 left">
+
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col ">
+                                        <div class="address-label">آدرس رستوران</div>
+                                        <div class="address-value">میدان تجریش، ضلع شمال شرقی</div>
+                                        <div class="phone-numbers">
+                                            تلفن:
+                                            <a href="tel:0211775">1775</a>
+                                            <a href="tel:02122746008">22746008</a>
+                                            <a href="tel:02122746007">22746007</a>
+                                        </div>
+                                    </div>
+                                     
+                                </div>
+                                <div class="row">
+                                    <div class="col google-map"></div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-xl-4 col-lg-4 mt-5  sabade-kharid">
+
+                <!--sabade-kharid-->
+                <div id="sabad-container">
+                    <!-- dd-->
+                    <h3 class="sabad-header">
+                        <span class="title">سبد خرید  <span class="sabad-header-number"> <strong>(3)</strong>  </span> </span>
+
+                        <span>  <svg class="icon" width="20" height="17" fill="#48484A" viewBox="0 0 11 12" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 2px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.97309 1.27296C4.09502 1.15104 4.26038 1.08254 4.4328 1.08254H6.56638C6.73881 1.08254 6.90417 1.15104 7.02609 1.27296C7.14801 1.39488 7.21651 1.56024 7.21651 1.73267V2.38288H3.78268V1.73267C3.78268 1.56024 3.85117 1.39488 3.97309 1.27296ZM2.94934 2.38288V1.73267C2.94934 1.33923 3.10564 0.961906 3.38384 0.683704C3.66204 0.405502 4.03936 0.249209 4.4328 0.249209H6.56638C6.95982 0.249209 7.33714 0.405502 7.61534 0.683704C7.89355 0.961906 8.04984 1.33923 8.04984 1.73267V2.38288H9.2245C9.22745 2.38282 9.2304 2.38279 9.23336 2.38279C9.23632 2.38279 9.23927 2.38282 9.24221 2.38288H10.3006C10.5307 2.38288 10.7172 2.56943 10.7172 2.79955C10.7172 3.02967 10.5307 3.21622 10.3006 3.21622H9.65002V10.267C9.65002 10.6604 9.49373 11.0377 9.21553 11.316C8.93733 11.5942 8.56001 11.7504 8.16657 11.7504H2.83262C2.43918 11.7504 2.06186 11.5942 1.78365 11.316C1.50545 11.0377 1.34916 10.6604 1.34916 10.267V3.21622H0.699454C0.469336 3.21622 0.282788 3.02967 0.282788 2.79955C0.282788 2.56943 0.469336 2.38288 0.699454 2.38288H1.75697C1.75991 2.38282 1.76287 2.38279 1.76583 2.38279C1.76879 2.38279 1.77174 2.38282 1.77468 2.38288H2.94934ZM2.18249 3.21622V10.267C2.18249 10.4394 2.25099 10.6048 2.37291 10.7267C2.49483 10.8486 2.66019 10.9171 2.83262 10.9171H8.16657C8.33899 10.9171 8.50435 10.8486 8.62627 10.7267C8.7482 10.6048 8.81669 10.4394 8.81669 10.267V3.21622H2.18249Z"></path></svg> </span>
+                    </h3>
+                    <div class="order-food">
+                        <div class="title-and-price">
+                            <div class="title">شیشلیک شمرون</div>
+                            <div class="price"> 1,090,000 تومان  </div>
+                        </div>
+                        <div class="number">
+                            <span class="btn btn-primary minus-square  ">-</span>
+                            <span class="food-order-number  ">2</span>
+                            <span class=" btn btn-primary plus-square  ">+</span>
+                        </div>
+                    </div>
+                    <div class="order-food">
+                        <div class="title-and-price">
+                            <div class="title"> جوجه کباب فیله شمرون  </div>
+                            <div class="price"> 410,000 تومان  </div>
+                        </div>
+                        <div class="number">
+                            <span class="btn btn-primary minus-square  ">-</span>
+                            <span class="food-order-number  ">1</span>
+                            <span class=" btn btn-primary plus-square  ">+</span>
+                        </div>
+                    </div>
+                    <div class="sabad-footer">
+                        <div class="tax">
+                            <span class="tax-title">مالیات 10%</span>
+                            <span class="tax-cost"> 259,000 تومان  </span>
+                        </div>
+                        <div class="total-cost">
+                            <span class="title">  هزینه کل  </span>
+                            <span class="total-cost-cost"> 2,849,000 تومان  </span>
+                        </div>
+                        <button class="footer-text">کد تخفیف دارید؟</button>
+                        <div class="footer-do-div"> تکمیل سفارش</div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid footer" id="footer">
+        <!--footer-->
+        <div id="tamase-telephoni">
+            <a class="tamase-telephoni sc-1pmure3-8 fPxdKC float-tel" href="tel:1775" title="1775">
+                <span>تماس تلفنی</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z">
+                    </path>
+                </svg>
+
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="footer-div1">
+                    <p>
+                        <span>
+                            © حقوق مادی و معنوی متعلق به
+                            <a href="#">شمرون کباب</a>
+                            است
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="footer-divmiddle">
+                    <div class="top">
+                        طراحی و پیاده‌سازی توسط
+                        <a target="_blank" href="https://www.onlinevisittimes.ir/" style="color: rgb(130, 40, 225);">
+                            <img src="images/vendo-logo.png" alt="مهران">مهران
+                        </a>
+
+                    </div>
+
+                    <!--<div class="bottom">
+                                <a title="iOS app" target="_blank" rel="noopener" href="httpss://sibche.com/applications/shemroon_migrated" class="bottom-a1">
+                                    <span class="sibche">
+                                        <img class="sibche-img" src="httpss://www.delino.com/img/general/label-app-ios-sibche.png" alt="">
+                                    </span>
+                                </a>
+                                <a title="android app" target="_blank" rel="noopener" href="httpss://cafebazaar.ir/app/delino.custom.shemroonkabab" class="bottom-a2">
+                                    <span class="bazar">
+                                        <img class="bazar-img" src="httpss://www.delino.com/img/general/label-app-android-bazaar.png" alt="">
+                                    </span>
+                                </a>
+                                <div class="sibche"></div>
+                                <div class="bazar"></div>
+                     </div>-->
+                    <div class="bottom">
+                        <a title="iOS app" href="#" class="bottom-a1">
+                            <span class="sibche">
+                                <img class="sibche-img" src="images/sibche.png" alt="sibche">
+                            </span>
+                        </a>
+                        <a title="android app" href="#" class="bottom-a2">
+                            <span class="bazar">
+                                <img class="bazar-img" src="images/bazar.png" alt="bazar">
+                            </span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3">
+                <div class="footer-div3">
+                    <div class="social-media-icons">
+                        <nav>
+                            <img src="images/facebook-150x150.png" class="facebook" alt="facebook"  />
+                            <img src="images/instagram-150x150.png" class="instagram" alt="instagram"  />
+                            <img src="images/telegram-150x150.png" class="telegram" alt="telegram"  />
+                            <img src="images/whatsapp-150x150.png" class="whatsapp" alt="whatsapp"  />
+                        </nav>
+                    </div>
+                    <div class="eNamad"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+</body>
+
+</html>
